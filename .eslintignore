@@ -1,8 +1,10 @@
 node_modules/
 dist/
+coverage/
 
 yarn.lock
 package.json
 *.json
 
 .eslintrc.json
+jest.config.js
