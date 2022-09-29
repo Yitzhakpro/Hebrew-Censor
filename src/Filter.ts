@@ -1,3 +1,4 @@
+import { isSingleWord } from './types';
 import klalot from './klalot.json';
 
 interface FilterConfig {
@@ -76,26 +77,41 @@ export class Filter {
   }
 
   /**
-   * Adds new profane words to the profane words list.
+   * Adds new profane word/s to the profane words list.
    *
-   * @param args - word/s or a spread array of words that will be considered profane
+   * @param arg - single word or an array of words that will be considered profane
    */
-  public addBadWords(...args: string[]): void {
-    const updatedWordList = [...new Set([...this._wordsList, ...args])];
+  public addBadWords(arg: string | string[]): void {
+    let updatedWordList: string[];
+
+    if (isSingleWord(arg)) {
+      updatedWordList = [...new Set([...this._wordsList, arg])];
+    } else {
+      updatedWordList = [...new Set([...this._wordsList, ...arg])];
+    }
 
     this._wordsList = updatedWordList;
   }
 
   /**
-   * Adds "White List/ Allowed Words" to the filter mechanism.
+   * Adds word/s to "White List/ Allowed Words" for the filter mechanism.
    *
-   * @param args - a word or array of words that will be removed(if they exist) from the profane words list
+   * @param arg - a word or array of words that will be removed(if they exist) from the profane words list
    */
-  public addToWhiteList(...args: string[]): void {
-    const filterdList = this._wordsList.filter((badWord) => {
-      return !args.includes(badWord);
-    });
+  public addToWhiteList(arg: string | string[]): void {
+    if (isSingleWord(arg)) {
+      const indexOfWord = this._wordsList.indexOf(arg);
+      if (indexOfWord === -1) {
+        return;
+      }
 
-    this._wordsList = filterdList;
+      this._wordsList.splice(indexOfWord, 1);
+    } else {
+      const filterdList = this._wordsList.filter((badWord) => {
+        return !arg.includes(badWord);
+      });
+
+      this._wordsList = filterdList;
+    }
   }
 }
