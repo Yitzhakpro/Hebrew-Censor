@@ -3,3 +3,6 @@ dist/
 
 yarn.lock
 package.json
+*.json
+
+.eslintrc.json

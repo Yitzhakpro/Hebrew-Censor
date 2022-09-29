@@ -10,7 +10,7 @@
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "eslint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
-    "eslint:fix": "eslint --fix .",
+    "eslint:fix": "eslint --fix --ext .js,.ts .",
     "prepare": "husky install"
   },
   "keywords": [],
