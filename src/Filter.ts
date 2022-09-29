@@ -2,17 +2,17 @@ import { isSingleWord } from './types';
 import klalot from './klalot.json';
 
 interface FilterConfig {
-  replacementSymbol?: string;
-  freshStart?: boolean;
-  extraWords?: string[];
-  whiteList?: string[];
+  replacementSymbol: string;
+  freshStart: boolean;
+  extraWords: string[];
+  whiteList: string[];
 }
 
 export class Filter {
   private _replacementSymbol: string;
   private _wordsList: string[] = klalot.words;
 
-  constructor(config: FilterConfig = {}) {
+  constructor(config: Partial<FilterConfig> = {}) {
     const { replacementSymbol = '*', freshStart = false, extraWords = [], whiteList = [] } = config;
 
     this._replacementSymbol = replacementSymbol;

@@ -1,5 +1,8 @@
 # modules
 node_modules/
 
+# coverage
+coverage/
+
 # builds
 dist/
