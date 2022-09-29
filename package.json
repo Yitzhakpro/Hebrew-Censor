@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon ./src/index.ts",
-    "build": "tsc -p ./tsconfig.json",
+    "build": "rimraf ./dist && tsc -p ./tsconfig.json",
     "start": "node ./dist/index.js",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
@@ -30,6 +30,7 @@
     "lint-staged": "^13.0.3",
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
     "typescript": "*"
   }
