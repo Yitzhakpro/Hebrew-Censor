@@ -3,6 +3,35 @@ import { Filter } from '../src/Filter';
 import klalot from '../src/klalot.json';
 
 describe('Hebrew Filter', () => {
+  describe('Getters & Setters', () => {
+    it('Should get the currnet replacement symbol', () => {
+      const customReplacementSymbol = '&';
+      const hebrewFilter = new Filter({ replacementSymbol: customReplacementSymbol });
+
+      const filterReplacementSymbol = hebrewFilter.replacementSymbol;
+
+      expect(filterReplacementSymbol).toBe(customReplacementSymbol);
+    });
+
+    it('Should set replacement symbol correctly', () => {
+      const newReplacementSymbol = '%';
+      const hebrewFilter = new Filter({ replacementSymbol: '*' });
+
+      hebrewFilter.replacementSymbol = newReplacementSymbol;
+      const currentReplacementSymbol = hebrewFilter.replacementSymbol;
+
+      expect(currentReplacementSymbol).toBe(newReplacementSymbol);
+    });
+
+    it('Should return the profane wordlist', () => {
+      const hebrewFilter = new Filter();
+
+      const filterWordlist = hebrewFilter.wordsList;
+
+      expect(filterWordlist).toBe(klalot.words);
+    });
+  });
+
   describe('Config', () => {
     describe('Defaults', () => {
       it('Should set by default the replacement symbol to: *', () => {
