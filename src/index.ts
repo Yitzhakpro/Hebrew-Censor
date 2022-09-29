@@ -1,1 +1,1 @@
-console.log('hey');
+export { Filter } from './Filter';
