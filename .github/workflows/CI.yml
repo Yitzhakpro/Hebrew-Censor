@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    name: 'Checking Linting'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Deps
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: install
+
+      - name: Linting
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: eslint:check
+  
+  unit-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [14, 16]
+      
+    name: 'Unit Test: node-${{ matrix.node_version }}'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: 'yarn'
+
+      - name: Install Deps
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: install
+
+      - name: Test
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: test
