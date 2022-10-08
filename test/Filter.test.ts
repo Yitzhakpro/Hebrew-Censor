@@ -90,12 +90,12 @@ describe('Hebrew Filter', () => {
   });
 
   describe('Filter Methods', () => {
-    describe('isProfane', () => {
+    describe('isWordProfane', () => {
       it('Should return false if the word is not profane', () => {
         const mockWord = 'למה';
         const hebrewFilter = new Filter();
 
-        const isProfane = hebrewFilter.isProfane(mockWord);
+        const isProfane = hebrewFilter.isWordProfane(mockWord);
 
         expect(isProfane).not.toBeTruthy();
       });
@@ -104,7 +104,7 @@ describe('Hebrew Filter', () => {
         const profaneWord = klalot.words[2];
         const hebrewFilter = new Filter();
 
-        const isProfane = hebrewFilter.isProfane(profaneWord);
+        const isProfane = hebrewFilter.isWordProfane(profaneWord);
 
         expect(isProfane).toBeTruthy();
       });
