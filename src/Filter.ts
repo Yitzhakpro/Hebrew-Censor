@@ -51,7 +51,7 @@ export class Filter {
    * @param word - the word to check
    * @returns true if the given word is profane, false if its not
    */
-  public isProfane(word: string): boolean {
+  public isWordProfane(word: string): boolean {
     return this._wordsList.some((badWord) => {
       if (word.search(badWord) !== -1) {
         return true;
@@ -71,7 +71,9 @@ export class Filter {
     return text
       .split(/\s+/g)
       .map((word) => {
-        return this.isProfane(word) ? Array(word.length + 1).join(this._replacementSymbol) : word;
+        return this.isWordProfane(word)
+          ? Array(word.length + 1).join(this._replacementSymbol)
+          : word;
       })
       .join(' ');
   }
