@@ -4,9 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "nodemon ./src/index.ts",
     "build": "rimraf ./dist && tsc -p ./tsconfig.json",
-    "start": "node ./dist/index.js",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "eslint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
