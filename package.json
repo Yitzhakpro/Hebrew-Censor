@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Package for censoring profane hebrew words",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rimraf ./dist && tsc -p ./tsconfig.json",
     "prettier:check": "prettier --check .",
@@ -21,7 +22,7 @@
     "censor"
   ],
   "author": "Yitzhakpro",
-  "license": "ISC",
+  "license": "MIT",
   "files": [
     "dist"
   ],
