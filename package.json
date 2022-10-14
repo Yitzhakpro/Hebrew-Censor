@@ -1,8 +1,9 @@
 {
   "name": "lo-yafe",
   "version": "1.0.0",
-  "description": "",
+  "description": "Package for censoring profane hebrew words",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rimraf ./dist && tsc -p ./tsconfig.json",
     "prettier:check": "prettier --check .",
@@ -12,9 +13,19 @@
     "test": "jest --coverage",
     "prepare": "husky install"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "curse",
+    "words",
+    "profanity",
+    "filter",
+    "hebrew",
+    "censor"
+  ],
+  "author": "Yitzhakpro",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
     "@types/jest": "^29.1.0",
