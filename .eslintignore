@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+
+yarn.lock
+package.json
+*.json
+*.txt
+
+.eslintrc.json
+jest.config.js

@@ -1,1 +1,2 @@
-console.log("hey");
+export { Filter } from './Filter';
+export * from './standalone';
