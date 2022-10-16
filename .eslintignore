@@ -6,6 +6,7 @@ yarn.lock
 package.json
 *.json
 *.txt
+*.md
 
 .eslintrc.json
 jest.config.js
