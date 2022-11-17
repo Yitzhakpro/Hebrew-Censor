@@ -42,7 +42,9 @@ console.log(standaloneIsProfane); // true
 ```
 
 ### **Using the `Filter Class` gives you the advantage of customizing the filter**<br/>
+
 **Click [here](#filter-class-init-options) for full filter init options**
+
 ```typescript
 import { Filter } from 'hebrew-censor';
 
@@ -60,6 +62,15 @@ console.log(thirdResult); // מה קורה ימניאק
 ```
 
 ## Filter Class Init Options
+
+```typescript
+const filterOptions = {
+    replacementSymbol: '*', // censor the words with this replacement symbol
+    freshStart: false, // wether or not to init profane words with empty array 
+    extraWords: [], // add extra words to profane words list
+    whiteList: [], // add white list words that should not be considered profane
+}
+```
 
 ## License
 
