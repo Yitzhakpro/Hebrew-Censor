@@ -1,5 +1,5 @@
 {
-  "name": "lo-yafe",
+  "name": "hebrew-censor",
   "version": "1.0.0",
   "description": "Package for censoring profane hebrew words",
   "main": "dist/index.js",
